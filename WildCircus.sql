@@ -27,13 +27,13 @@ CREATE TABLE users (
   wildpoints INT(10)
 );
 
-CREATE TABLE representation (
+CREATE TABLE representations (
   id INT AUTO_INCREMENT PRIMARY KEY, 
   localisation VARCHAR(255) NOT NULL,
   date_rep DATE NOT NULL
 );
 
-CREATE TABLE users_representation (
+CREATE TABLE users_representations (
   id INT AUTO_INCREMENT PRIMARY KEY,
   users_id INT NOT NULL,
   representation_id INT NOT NULL
@@ -41,19 +41,19 @@ CREATE TABLE users_representation (
 
 /*--------------------------------------*/
 
-ALTER TABLE users_representation
+ALTER TABLE users_representations
 ADD CONSTRAINT `fk_users_representation_representation`
 FOREIGN KEY (`representation_id`)
 REFERENCES `representation`(`id`);
 
-ALTER TABLE users_representation
+ALTER TABLE users_representations
 ADD CONSTRAINT `fk_users_representation_users`
 FOREIGN KEY (`users_id`)
 REFERENCES `users`(`id`);
 
 /*---------------------------------------*/
 
-INSERT INTO representation (`id`, `localisation`, `date_rep`) VALUES (1, 'Reims', '2020-08-12'), (2, 'Paris', '2020-09-15'), (3, 'Bordeaux', '2020-11-02');
+INSERT INTO representations (`id`, `localisation`, `date_rep`) VALUES (1, 'Reims', '2020-08-12'), (2, 'Paris', '2020-09-15'), (3, 'Bordeaux', '2020-11-02');
 
 INSERT INTO performances (`id`, `title`, `description`, `performance_image`) VALUES 
 (1, 'Clown', 'A clown is a comic performer who employs slapstick or similar types of physical comedy, often in a mime style.', 'https://i.pinimg.com/originals/db/44/a9/db44a987311a5383faac3e6041e277e8.jpg'), 
