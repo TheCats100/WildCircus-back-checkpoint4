@@ -36,18 +36,18 @@ CREATE TABLE representations (
 CREATE TABLE users_representations (
   id INT AUTO_INCREMENT PRIMARY KEY,
   users_id INT NOT NULL,
-  representation_id INT NOT NULL
+  representations_id INT NOT NULL
 );
 
 /*--------------------------------------*/
 
 ALTER TABLE users_representations
-ADD CONSTRAINT `fk_users_representation_representation`
-FOREIGN KEY (`representation_id`)
-REFERENCES `representation`(`id`);
+ADD CONSTRAINT `fk_users_representations_representations`
+FOREIGN KEY (`representations_id`)
+REFERENCES `representations`(`id`);
 
 ALTER TABLE users_representations
-ADD CONSTRAINT `fk_users_representation_users`
+ADD CONSTRAINT `fk_users_representations_users`
 FOREIGN KEY (`users_id`)
 REFERENCES `users`(`id`);
 

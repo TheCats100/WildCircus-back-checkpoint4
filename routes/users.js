@@ -55,7 +55,7 @@ router.post('/', (req, res) => {
 
   const formData = req.body;
 
-  if (formData.ordinal_number == null || formData.email == null || formData.password == null) {
+  if (formData.pseudo == null || formData.email == null || formData.password == null) {
     return (
       res.status(400).json({ message: "Necessary fields are empty" })
     );

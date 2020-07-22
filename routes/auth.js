@@ -22,6 +22,7 @@ router.post('/login', (req, res) => {
     bcrypt.compare(password, user.password, function(errCompare, result) {
       if(result) {
         const token = createToken(user);
+        delete user.password
         res.json({ user, token });
 
       } else {

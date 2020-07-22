@@ -12,7 +12,7 @@ const login = require('./auth');
 router.use('/performances', performances)
 router.use('/artists', artists)
 router.use('/representations', representations)
-router.use('./users', users)
+router.use('/users', users)
 router.use('/login', login);
 
 module.exports = router;
