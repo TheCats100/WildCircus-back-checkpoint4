@@ -3,7 +3,7 @@ const connection = require('../conf');
 const router = express.Router({ mergeParams: true });
 
 router.get('/', (req, res) => {
-  connection.query('SELECT * from performances', (err, results) => {
+  connection.query('SELECT * from artists', (err, results) => {
     if (err) {
       return (
         res.status(500).json({ message: 'No body was here..' })
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const { id } = req.params
-  connection.query('SELECT * from performances WHERE id = ?', id, (err, results) => {
+  connection.query('SELECT * from artists WHERE id = ?', id, (err, results) => {
     if (err) {
       return (
         res.status(500).json({ message: 'Internal server error' })
@@ -39,7 +39,7 @@ router.put('/:id', (req, res) => {
   const idDVM = req.params.id;
   const formData = req.body;
 
-  connection.query('UPDATE performances SET ? WHERE id = ?', [formData, idDVM], (err, results) => {
+  connection.query('UPDATE artists SET ? WHERE id = ?', [formData, idDVM], (err, results) => {
     if (err) {
       return (
         res.status(500).json({ message: "Error server" })
@@ -57,7 +57,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   const idDVM = req.params.id;
 
-  connection.query('DELETE FROM performances WHERE id = ?', [idDVM], err => {
+  connection.query('DELETE FROM artists WHERE id = ?', [idDVM], err => {
     if (err) {
       return (
         res.status(500).json({ message: "Internal server error" })
@@ -67,5 +67,7 @@ router.delete('/:id', (req, res) => {
     }
   });
 });
+
+
 
 module.exports = router;
