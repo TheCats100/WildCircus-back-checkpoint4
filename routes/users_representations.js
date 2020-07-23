@@ -26,9 +26,9 @@ router.post('/:userId/representations', (req, res) => {
   });
 });
 
-router.delete('/:userId/representations/:representationId', (req, res) => {
-  const { userId, representationsId } = req.params;
-  connection.query('DELETE FROM users_representations WHERE users_id = ? AND representations_id = ?', [userId, representationsId], (err, results) => {
+router.delete('/:usersId/representations/:representationsId', (req, res) => {
+  const { usersId, representationsId } = req.params;
+  connection.query('DELETE FROM users_representations WHERE users_id = ? AND representations_id = ?', [usersId, representationsId], (err, results) => {
     if (err) {
       return (
         res.status(500).json({ message: 'Error server' })

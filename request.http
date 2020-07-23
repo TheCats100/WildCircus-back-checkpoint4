@@ -9,7 +9,7 @@ PUT http://localhost:8000/users/1
 Content-Type: application/json
 
 {
-  "wildpoints": 100
+  "wildpoints": 1000
 }
 ###
 POST http://localhost:8000/users
@@ -39,3 +39,6 @@ Content-Type: application/json
   "users_id":"1",
   "representations_id": "2"
 }
+###
+DELETE http://localhost:8000/buy/1/representations/3
+
