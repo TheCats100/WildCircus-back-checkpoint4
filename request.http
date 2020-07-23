@@ -5,6 +5,13 @@ GET http://localhost:8000/representations
 GET http://localhost:8000/users
 
 ###
+PUT http://localhost:8000/users/1
+Content-Type: application/json
+
+{
+  "wildpoints": 100
+}
+###
 POST http://localhost:8000/users
 Content-Type: application/json
 
@@ -21,4 +28,14 @@ Content-Type: application/json
 {
   "email":"user@mail.com",
   "password": "1234"
+}
+###
+GET http://localhost:8000/buy/1/representations
+###
+POST http://localhost:8000/buy/1/representations
+Content-Type: application/json
+
+{
+  "users_id":"1",
+  "representations_id": "2"
 }
